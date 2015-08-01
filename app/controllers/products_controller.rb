@@ -58,15 +58,16 @@ class ProductsController < ApplicationController
   end
 
   private
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    def set_catalogs
-      @catalogs = Catalog.all
-    end
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
-    def product_params
-      params.require(:product).permit(:name, :description, :price, :catalog_id)
-    end
+  def set_catalogs
+    @catalogs = Catalog.all
+  end
+
+  def product_params
+    params.require(:product).permit(:name, :description, :price, :catalog_id)
+  end
 end

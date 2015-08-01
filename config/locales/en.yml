@@ -20,4 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  errors:
+    messages:
+      not_saved:
+        one: "1 error prohibited from being saved:"
+        other: "%{count} errors prohibited from being saved:"
+        few: "%{count} errors prohibited from being saved:"

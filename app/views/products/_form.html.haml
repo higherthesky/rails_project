@@ -1,4 +1,4 @@
-= form_for @product do |f|
+= form_for product do |f|
   = render 'shared/errors_messages', object: f.object
 
   .field
@@ -12,6 +12,6 @@
     = f.text_field :price
   .field
     = f.label :catalog_id
-    = f.collection_select :catalog_id, @catalogs, :id, :name, { prompt: 'Select Catalog' }
+    = f.collection_select :catalog_id, catalogs, :id, :name, prompt: 'Select Catalog'
   .actions
-    = f.submit 'Save', id: "save_record"
+    = f.submit 'Save', id: 'save_record'

@@ -3,7 +3,6 @@ shared_examples 'base record' do
   let(:record_name) { @post_1.class.name.underscore }
   let(:records_name) { @post_1.class.name.underscore.pluralize }
 
-
   context 'show records' do
     it 'have content' do
       expect(page).to have_content @post_1.name

@@ -1,0 +1,14 @@
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 170
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'lib/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+

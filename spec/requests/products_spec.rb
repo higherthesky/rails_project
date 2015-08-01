@@ -11,6 +11,10 @@ describe 'Product' do
 
   it_behaves_like 'base record'
 
+  let(:new_name) { 'new name' }
+  let(:new_description) { 'new description' }
+  let(:new_price) { 1 }
+
   context 'new record' do
     before do
       @new_catalog = create :catalog
@@ -19,9 +23,6 @@ describe 'Product' do
 
     it 'correct fields - success' do
       expect do
-        new_name = 'new name'
-        new_description = 'new description'
-        new_price = 1
         fill_in 'product_name', with: new_name
         fill_in 'product_description', with: new_description
         fill_in 'product_price', with: new_price
@@ -45,10 +46,7 @@ describe 'Product' do
       click_link "edit_record_#{@product_1.id}"
     end
 
-    it 'correct fields - success', js: true do
-      new_name = 'new name'
-      new_description = 'new description'
-      new_price = 1
+    it 'correct fields - success' do
       fill_in 'product_name', with: new_name
       fill_in 'product_description', with: new_description
       fill_in 'product_price', with: new_price
@@ -66,8 +64,3 @@ describe 'Product' do
     end
   end
 end
-
-
-
-
-

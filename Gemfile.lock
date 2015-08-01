@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    abstract_type (0.0.7)
     actionmailer (4.2.1)
       actionpack (= 4.2.1)
       actionview (= 4.2.1)
@@ -36,10 +37,30 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    adamantium (0.2.0)
+      ice_nine (~> 0.11.0)
+      memoizable (~> 0.4.0)
     addressable (2.3.8)
     arel (6.0.2)
+    ast (2.0.0)
+    astrolabe (1.3.1)
+      parser (~> 2.2)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    brakeman (3.0.3)
+      erubis (~> 2.6)
+      fastercsv (~> 1.5)
+      haml (>= 3.0, < 5.0)
+      highline (~> 1.6.20)
+      multi_json (~> 1.2)
+      ruby2ruby (~> 2.1.1)
+      ruby_parser (~> 3.6.2)
+      sass (~> 3.0)
+      terminal-table (~> 1.4)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -57,7 +78,11 @@ GEM
       json
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
+    code_analyzer (0.4.5)
+      sexp_processor
     coderay (1.1.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -65,10 +90,18 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    colored (1.2)
     columnize (0.9.0)
+    concord (0.1.5)
+      adamantium (~> 0.2.0)
+      equalizer (~> 0.0.9)
     database_rewinder (0.5.3)
     debug_inspector (0.0.2)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
+    docile (1.1.5)
+    equalizer (0.0.11)
     erubis (2.7.0)
     execjs (2.5.2)
     factory_girl (4.5.0)
@@ -76,7 +109,14 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    fastercsv (1.5.5)
     ffi (1.9.10)
+    flay (2.4.0)
+      ruby_parser (~> 3.0)
+      sexp_processor (~> 4.0)
+    flog (4.2.1)
+      ruby_parser (~> 3.1, > 3.1.0)
+      sexp_processor (~> 4.4)
     formatador (0.2.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
@@ -107,12 +147,18 @@ GEM
       haml (>= 4.0.6, < 5.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
+    haml_lint (0.15.0)
+      haml (~> 4.0)
+      rubocop (>= 0.25.0)
+      sysexits (~> 1.1)
+    highline (1.6.21)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
     i18n (0.7.0)
+    ice_nine (0.11.1)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -126,11 +172,17 @@ GEM
     listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    lol_dba (2.0.0)
+      actionpack (>= 3.0, < 5.0)
+      activerecord (>= 3.0, < 5.0)
+      railties (>= 3.0, < 5.0)
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    memoizable (0.4.2)
+      thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
     mime-types (2.6.1)
     mini_portile (0.6.2)
@@ -142,6 +194,10 @@ GEM
     notiffany (0.0.7)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    parser (2.2.2.6)
+      ast (>= 1.1, < 3.0)
+    powerpack (0.1.1)
+    procto (0.0.2)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -168,15 +224,30 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails_best_practices (1.15.7)
+      activesupport
+      code_analyzer (>= 0.4.3)
+      colored
+      erubis
+      i18n
+      json
+      require_all
+      ruby-progressbar
     railties (4.2.1)
       actionpack (= 4.2.1)
       activesupport (= 4.2.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    rainbow (2.0.0)
     rake (10.4.2)
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    reek (1.6.5)
+      parser (~> 2.2.0.pre.7)
+      rainbow (>= 1.99, < 3.0)
+      unparser (~> 0.2.2)
+    require_all (1.3.2)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
@@ -198,8 +269,24 @@ GEM
       rspec-mocks (~> 3.2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
+    rubocop (0.32.1)
+      astrolabe (~> 1.3)
+      parser (>= 2.2.2.5, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.4)
+    ruby-progressbar (1.7.5)
+    ruby2ruby (2.1.4)
+      ruby_parser (~> 3.1)
+      sexp_processor (~> 4.0)
     ruby_parser (3.6.6)
       sexp_processor (~> 4.1)
+    rubycritic (1.4.0)
+      flay (= 2.4.0)
+      flog (= 4.2.1)
+      parser (>= 2.2.0, < 3.0)
+      reek (= 1.6.5)
+      virtus (~> 1.0)
     sass (3.4.16)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -210,6 +297,11 @@ GEM
     seed_migration (1.0.5)
     sexp_processor (4.5.0)
     shellany (0.0.1)
+    simplecov (0.10.0)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     slop (3.6.0)
     spork (1.0.0rc4)
     spork-rails (4.0.0)
@@ -223,14 +315,31 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     sqlite3 (1.3.10)
+    sysexits (1.2.0)
+    terminal-table (1.5.2)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    traceroute (0.5.0)
+      rails (>= 3.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unparser (0.2.4)
+      abstract_type (~> 0.0.7)
+      adamantium (~> 0.2.0)
+      concord (~> 0.1.5)
+      diff-lcs (~> 1.2.5)
+      equalizer (~> 0.0.9)
+      parser (~> 2.2.2)
+      procto (~> 0.0.2)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -243,6 +352,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  brakeman
   byebug
   capybara
   capybara-screenshot
@@ -254,17 +364,24 @@ DEPENDENCIES
   guard-spork
   haml
   haml-rails
+  haml_lint
   jbuilder
   jquery-rails
   json
+  lol_dba
   rails (= 4.2.1)
+  rails_best_practices
   rspec
   rspec-rails
+  rubocop
+  rubycritic
   sass-rails
   seed_migration
+  simplecov
   spork
   spork-rails
   spring
   sqlite3
+  traceroute
   uglifier
   web-console (~> 2.0)

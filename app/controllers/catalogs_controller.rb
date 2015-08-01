@@ -57,11 +57,12 @@ class CatalogsController < ApplicationController
   end
 
   private
-    def set_catalog
-      @catalog = Catalog.find(params[:id])
-    end
 
-    def catalog_params
-      params.require(:catalog).permit(:name, :description)
-    end
+  def set_catalog
+    @catalog = Catalog.find(params[:id])
+  end
+
+  def catalog_params
+    params.require(:catalog).permit(:name, :description)
+  end
 end
