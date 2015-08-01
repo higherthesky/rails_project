@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801112226) do
+ActiveRecord::Schema.define(version: 20150801124513) do
 
   create_table "catalogs", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20150801112226) do
     t.integer  "catalog_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "seed_migration_data_migrations", force: :cascade do |t|
+    t.string   "version"
+    t.integer  "runtime"
+    t.datetime "migrated_on"
   end
 
 end
