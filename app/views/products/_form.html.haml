@@ -12,6 +12,6 @@
     = f.text_field :price
   .field
     = f.label :catalog_id
-    = f.number_field :catalog_id
+    = f.collection_select :catalog_id, @catalogs, :id, :name, { prompt: 'Select Catalog' }
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', id: "save_record"

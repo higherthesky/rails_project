@@ -33,7 +33,14 @@ end
 
 group :test do
   gem 'rspec'
+  gem 'spork'
+  gem 'spork-rails'
+  gem 'guard-spork'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'guard-rspec'
+  gem 'database_rewinder'
+  gem 'capybara-webkit'
+  gem 'capybara-screenshot'
 end
 

@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_catalogs, only: [:new, :edit, :create, :update]
 
   # GET /products
   def index
@@ -59,6 +60,10 @@ class ProductsController < ApplicationController
   private
     def set_product
       @product = Product.find(params[:id])
+    end
+
+    def set_catalogs
+      @catalogs = Catalog.all
     end
 
     def product_params

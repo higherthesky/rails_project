@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @catalog
+= link_to 'Show', @catalog, id: "show_record_#{@catalog.id}"
 \|
-= link_to 'Back', catalogs_path
+= link_to 'Back', catalogs_path, id: "back_page"

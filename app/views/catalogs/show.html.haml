@@ -7,6 +7,6 @@
   %b Description:
   = @catalog.description
 
-= link_to 'Edit', edit_catalog_path(@catalog)
+= link_to 'Edit', edit_catalog_path(@catalog), id: "edit_record_#{@catalog.id}"
 \|
-= link_to 'Back', catalogs_path
+= link_to 'Back', catalogs_path, id: "back_page"

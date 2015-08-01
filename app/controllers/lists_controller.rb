@@ -14,7 +14,10 @@ class ListsController < ApplicationController
   end
 
   private
+    # response with exception if catalog not find
     def set_catalog
       @catalog = Catalog.find(params[:catalog_id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { error: e.message }, status: :not_found
     end
 end
