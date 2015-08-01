@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @catalog.name
+%p
+  %b Description:
+  = @catalog.description
+
+= link_to 'Edit', edit_catalog_path(@catalog)
+\|
+= link_to 'Back', catalogs_path
