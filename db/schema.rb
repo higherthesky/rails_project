@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801124513) do
+ActiveRecord::Schema.define(version: 20150801132348) do
 
   create_table "catalogs", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20150801124513) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "products", ["catalog_id"], name: "index_products_on_catalog_id"
 
   create_table "seed_migration_data_migrations", force: :cascade do |t|
     t.string   "version"
