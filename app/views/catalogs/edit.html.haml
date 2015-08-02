@@ -1,7 +1,7 @@
 %h1 Editing catalog
 
-= render 'form', catalog: @catalog
+= render 'form', catalog: @post
 
-= link_to 'Show', @catalog, id: "show_record_#{@catalog.id}"
+= link_to 'Show', @post, id: "show_record_#{@post.id}"
 \|
 = link_to 'Back', catalogs_path, id: 'back_page'

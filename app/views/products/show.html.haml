@@ -2,17 +2,17 @@
 
 %p
   %b Name:
-  = @product.name
+  = @post.name
 %p
   %b Description:
-  = @product.description
+  = @post.description
 %p
   %b Price:
-  = @product.price
+  = @post.price
 %p
   %b Catalog:
-  = @product.catalog_id
+  = @post.catalog_id
 
-= link_to 'Edit', edit_product_path(@product), id: "edit_record_#{@product.id}"
+= link_to 'Edit', edit_product_path(@post), id: "edit_record_#{@post.id}"
 \|
 = link_to 'Back', products_path, id: 'back_page'

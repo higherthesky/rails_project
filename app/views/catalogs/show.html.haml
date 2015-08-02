@@ -2,11 +2,11 @@
 
 %p
   %b Name:
-  = @catalog.name
+  = @post.name
 %p
   %b Description:
-  = @catalog.description
+  = @post.description
 
-= link_to 'Edit', edit_catalog_path(@catalog), id: "edit_record_#{@catalog.id}"
+= link_to 'Edit', edit_catalog_path(@post), id: "edit_record_#{@post.id}"
 \|
 = link_to 'Back', catalogs_path, id: 'back_page'
