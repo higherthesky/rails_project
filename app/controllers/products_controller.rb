@@ -1,4 +1,4 @@
-class ProductsController < PostsController
+class ProductsController < BaseController
   before_action :set_catalogs, only: [:new, :edit, :create, :update]
 
   private

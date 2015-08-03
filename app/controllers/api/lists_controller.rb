@@ -1,4 +1,4 @@
-class ListsController < ApplicationController
+class Api::ListsController < ApplicationController
   before_action :set_catalog, only: [:list_product]
 
   # GET /list_catalog.json
@@ -9,7 +9,7 @@ class ListsController < ApplicationController
 
   # GET /list_product.json
   def list_product
-    @products = Product.by_catalog(@catalog)
+    @products = @catalog.products
     respond_to :json
   end
 

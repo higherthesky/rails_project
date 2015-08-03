@@ -1,4 +1,4 @@
-class CatalogsController < PostsController
+class CatalogsController < BaseController
   private
 
   def post_params

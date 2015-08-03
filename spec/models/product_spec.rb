@@ -28,6 +28,6 @@ describe 'Product', type: :model do
     create :product
     product_2 = create :product, catalog: catalog
     product_3 = create :product, catalog: catalog
-    expect(Product.by_catalog(catalog)).to match_array([product_2, product_3])
+    expect(catalog.products).to match_array([product_2, product_3])
   end
 end

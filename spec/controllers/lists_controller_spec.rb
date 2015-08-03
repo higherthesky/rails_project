@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'ListsController', type: :controller do
   before do
-    @controller = ListsController.new
+    @controller = Api::ListsController.new
   end
 
   after do
